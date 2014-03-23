@@ -1,0 +1,30 @@
+{
+  "name": "scripture-lottery",
+  "version": "0.0.0",
+  "description": "Can't decide what to read today? Let this app decide for you.",
+  "main": "app.js",
+  "private": true,
+  "scripts": {
+    "start": "node app.js",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tylerpeterson/scripture-lottery.git"
+  },
+  "keywords": [
+    "LDS"
+  ],
+  "author": "Tyler Peterson <petersontb@familysearch.org>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tylerpeterson/scripture-lottery/issues"
+  },
+  "homepage": "https://github.com/tylerpeterson/scripture-lottery",
+  "dependencies": {
+    "express": "3.5.0",
+    "ejs": "*",
+    "stylus": "*"
+  }
+
+}
