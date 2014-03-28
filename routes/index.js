@@ -21,8 +21,11 @@ exports.index = function(req, res){
   var work = pickOne(Object.keys(scriptures)),
       book = pickOne(Object.keys(scriptures[work])),
       chapter = Number(pickOne(Object.keys(scriptures[work][book]))) + 1,
-      verse = randomIntegerLessThan(scriptures[work][book][chapter - 1]) + 1;
+      verse = randomIntegerLessThan(scriptures[work][book][chapter - 1]) + 1,
+      anchor = '#' + (verse > 1 ? verse - 1 : verse),
+      viewParams = {work: work, book: book, chapter: chapter, verse: verse, anchor: anchor};
 
-  console.log('work, book, chapter, verse', work, book, chapter, verse);
-  res.render('index', { title: 'Scripture Lottery', work: work, book: book, chapter: chapter, verse: verse });
+  console.log(viewParams);
+  viewParams.title = 'Scripture Lottery';
+  res.render('index', viewParams);
 };
