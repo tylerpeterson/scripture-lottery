@@ -2,7 +2,8 @@ var Q = require('q'),
     FS = require('fs'),
     path = require('path'),
     readFile = Q.denodeify(FS.readFile),
-    scriptures = require('../scriptures');
+    scriptures = require('../scriptures'),
+    debug = require('debug')('scripture-lottery');
 
 function randomIntegerLessThan(num) {
   return Math.floor(Math.random() * num);
@@ -25,7 +26,7 @@ exports.index = function(req, res){
       anchor = '#' + (verse > 1 ? verse - 1 : verse),
       viewParams = {work: work, book: book, chapter: chapter, verse: verse, anchor: anchor};
 
-  console.log(viewParams);
+  debug(viewParams);
   viewParams.title = 'Scripture Lottery';
   res.render('index', viewParams);
 };
