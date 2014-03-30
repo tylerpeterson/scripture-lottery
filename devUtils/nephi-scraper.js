@@ -7,8 +7,11 @@ var request = require('superagent'),
       versePattern = /^(\d+)\./,
       lastVerse = 1;
 
+  // TODO have a cleaner interface for returning the desired values
+  // TODO unit test this with some canned html
+  // TODO compute the next url based on the parsed nextlink and the base url
+  // TODO make the parser know about url being parsed so nexurl is easier to compute
   parser = new htmlparser.Parser({
-    // TODO parse the 'next' link as well.
     onopentag: function (tagname, attrs) {
       if (tagname === 'p') {
         inPar = true;
