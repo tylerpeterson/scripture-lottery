@@ -20,7 +20,7 @@ var request = require('superagent'),
       if (inPar && text) {
         matches = text.match(versePattern);
         if (matches) {
-          lastVerse = matches[0];
+          lastVerse = matches[1];
           console.log('found verse', lastVerse);
         }
       }
