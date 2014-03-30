@@ -9,9 +9,13 @@ var request = require('superagent'),
 
   parser = new htmlparser.Parser({
     // TODO parse the 'next' link as well.
-    onopentag: function (tagname) {
+    onopentag: function (tagname, attrs) {
       if (tagname === 'p') {
         inPar = true;
+      }
+      if (tagname === 'a' && attrs.accesskey === 'N') {
+        console.log('found next link', attrs.href);
+        parser.nextLink = attrs.href;
       }
     },
     ontext: function (text) {
@@ -41,7 +45,7 @@ request.get('http://scriptures.nephi.org/docbook/bom/c6.html')
     .end(function (err, res) {
       parser.write(res.text);
       parser.end();
-      console.log('parser returned', parser.lastVerse);
+      console.log('parser returned lastverse(%s) nextlink(%s)', parser.lastVerse, parser.nextLink);
       // console.log(res.text);
     });
 console.log('ran');
