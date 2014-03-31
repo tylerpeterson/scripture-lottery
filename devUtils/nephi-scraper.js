@@ -44,6 +44,7 @@ var request = require('superagent'),
   });
 })();
 
+// TODO export a function instead of doing it all
 request.get('http://scriptures.nephi.org/docbook/bom/c6.html')
     .end(function (err, res) {
       parser.write(res.text);
@@ -52,3 +53,8 @@ request.get('http://scriptures.nephi.org/docbook/bom/c6.html')
       // console.log(res.text);
     });
 console.log('ran');
+
+if (require.main === module) {
+  // TODO run for real
+}
+
