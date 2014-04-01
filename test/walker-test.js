@@ -4,7 +4,9 @@ var scraper = require('../devUtils/nephi-scraper'),
 console.log('in test');
 
 describe('Scraper', function () {
-  it('should be included as a module', function () {
+  it('should export the parser', function () {
     expect(scraper).to.be.defined;
+    expect(scraper.write).to.be.a('function');
+    expect(scraper.end).to.be.a('function');
   });
 });
