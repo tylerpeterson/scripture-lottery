@@ -44,17 +44,15 @@ var request = require('superagent'),
   });
 })();
 
-// TODO export a function instead of doing it all
-request.get('http://scriptures.nephi.org/docbook/bom/c6.html')
-    .end(function (err, res) {
-      parser.write(res.text);
-      parser.end();
-      console.log('parser returned lastverse(%s) nextlink(%s)', parser.lastVerse, parser.nextLink);
-      // console.log(res.text);
-    });
-console.log('ran');
+module.exports = parser;
 
 if (require.main === module) {
-  // TODO run for real
+  request.get('http://scriptures.nephi.org/docbook/bom/c6.html')
+      .end(function (err, res) {
+        parser.write(res.text);
+        parser.end();
+        console.log('parser returned lastverse(%s) nextlink(%s)', parser.lastVerse, parser.nextLink);
+      });
+  console.log('ran');
 }
 
