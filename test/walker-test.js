@@ -23,4 +23,10 @@ describe('Scraper', function () {
     scraper.end();
     expect(scraper.lastVerse).to.equal('20');
   });
+
+  it('should remember the next link', function() {
+    scraper.write(html);
+    scraper.end();
+    expect(scraper.nextLink).to.equal('ch2.html');
+  });
 });

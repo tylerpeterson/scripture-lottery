@@ -16,7 +16,7 @@ var request = require('superagent'),
       if (tagname === 'p') {
         inPar = true;
       }
-      if (tagname === 'a' && attrs.accesskey === 'N') {
+      if (tagname === 'link' && attrs.rel === 'NEXT') {
         console.log('found next link', attrs.href);
         parser.nextLink = attrs.href;
       }
