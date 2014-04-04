@@ -1,9 +1,7 @@
-var scraper = require('../devUtils/nephi-scraper'),
+var scraper = require('../devUtils/nephi-parser'),
     expect = require('chai').expect,
     fs = require('fs'),
     path = require('path');
-
-console.log('in test');
 
 describe('Scraper', function () {
   var html;
