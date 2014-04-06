@@ -2,20 +2,19 @@ var htmlparser = require('htmlparser2'),
     debug = require('debug')('nephi-parser'),
     parser;
 
-(function () {
+module.exports = function (markup) {
   var inPar = false,
       versePattern = /^(\d+)\./,
-      lastVerse = 1;
-
-  // TODO have a cleaner interface for returning the desired values
-  parser = new htmlparser.Parser({
+      lastVerse = 1,
+      nextLink = null,
+      parser = new htmlparser.Parser({
     onopentag: function (tagname, attrs) {
       if (tagname === 'p') {
         inPar = true;
       }
       if (tagname === 'link' && attrs.rel === 'NEXT') {
         debug('found next link', attrs.href);
-        parser.nextLink = attrs.href;
+        nextLink = attrs.href;
       }
     },
     ontext: function (text) {
@@ -30,16 +29,17 @@ var htmlparser = require('htmlparser2'),
       }
     },
     onclosetag: function (tagname) {
-      if (tagname === 'html') {
-        debug('reached document end. last verse:', lastVerse);
-        parser.lastVerse = lastVerse;
-      }
       if (tagname === 'p') {
         inPar = false;
       }
     }
   });
-})();
 
-module.exports = parser;
+  parser.write(markup);
+  parser.end();
+
+  debug('reached document end. last verse:', lastVerse);
+  return {lastVerse: lastVerse, nextLink: nextLink};
+};
+
 

@@ -7,9 +7,8 @@ var request = require('superagent'),
 if (require.main === module) {
   request.get('http://scriptures.nephi.org/docbook/bom/c6.html')
       .end(function (err, res) {
-        parser.write(res.text);
-        parser.end();
-        console.log('parser returned lastverse(%s) nextlink(%s)', parser.lastVerse, parser.nextLink);
+        var data = parser(res.text);
+        console.log('parser returned lastverse(%s) nextlink(%s)', data.lastVerse, data.nextLink);
       });
   console.log('ran');
 }
