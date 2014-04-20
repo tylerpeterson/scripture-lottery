@@ -24,13 +24,15 @@ describe('Scraper', function () {
         expect(parser(html).nextLink).to.equal('ch2.html');
       });
 
-      it.skip('should remember the chapter number', function () {
-        expect(parser(html).chapter).to.equal('1');
-      });
+      if (scenario === 'first-in-a-book') {
+        it('should remember the chapter number', function () {
+          expect(parser(html).chapter).to.equal('1');
+        });
+      }
 
       it.skip('should remember the book', function () {
         expect(parser(html).book).to.equal('The Book of Jacob');
-      })
+      });
     });
   });
 });
