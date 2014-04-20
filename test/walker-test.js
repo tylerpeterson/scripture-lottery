@@ -29,11 +29,10 @@ describe('Scraper', function () {
         expect(parser(html).chapter).to.equal(expectedChapter);
       });
 
-      if (scenario === 'first-in-a-book') {
-        it('should remember the book', function () {
-          expect(parser(html).book).to.equal('The Book of Jacob');
-        });
-      }
+      it('should remember the book', function () {
+        var expectedBook = scenario === 'first-in-a-book' ? 'The Book of Jacob' : 'The First Book of Nephi';
+        expect(parser(html).book).to.equal(expectedBook);
+      });
     });
   });
 });

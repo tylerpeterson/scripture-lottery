@@ -25,6 +25,10 @@ module.exports = function (markup) {
         debug('found next link', attrs.href);
         nextLink = attrs.href;
       }
+      if (tagname === 'link' && attrs.rel === 'UP') {
+        book = attrs.title;
+        debug('found the book name in up link (%s)', book);
+      }
       if (tagname === 'div' && attrs.class) {
         debug('entered a div with class %s', attrs.class);
         divClass = attrs.class;
