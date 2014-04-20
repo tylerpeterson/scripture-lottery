@@ -8,7 +8,8 @@ module.exports = function (markup) {
       inTitle = false,
       versePattern = /^(\d+)\./,
       chapterPattern = /Chapter\s+(\d+)/i,
-      chapter = 0;
+      book = null,
+      chapter = 0,
       lastVerse = 1,
       nextLink = null,
       divClass = null,
@@ -56,6 +57,8 @@ module.exports = function (markup) {
         if (matches) {
           chapter = matches[1];
           debug('found chapter (%s) in title');
+        } else {
+          book = text;
         }
       }
     },
@@ -76,7 +79,8 @@ module.exports = function (markup) {
   parser.end();
 
   debug('reached document end. last verse:', lastVerse);
-  return {lastVerse: lastVerse, nextLink: nextLink, chapter: chapter};
+  return {lastVerse: lastVerse, nextLink: nextLink, chapter: chapter,
+      book: book};
 };
 
 
