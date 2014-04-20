@@ -5,6 +5,7 @@ var htmlparser = require('htmlparser2'),
 module.exports = function (markup) {
   var inPar = false,
       inH1 = false,
+      inTitle = false,
       versePattern = /^(\d+)\./,
       chapterPattern = /Chapter\s+(\d+)/i,
       chapter = 0;
@@ -27,6 +28,10 @@ module.exports = function (markup) {
         debug('entered a div with class %s', attrs.class);
         divClass = attrs.class;
       }
+      if (tagname === 'title') {
+        debug('entered title');
+        inTitle = true;
+      }
     },
     ontext: function (text) {
       var matches;
@@ -46,6 +51,13 @@ module.exports = function (markup) {
           debug('found chapter (%s)', chapter);
         }
       }
+      if (inTitle && text) {
+        matches = text.match(chapterPattern);
+        if (matches) {
+          chapter = matches[1];
+          debug('found chapter (%s) in title');
+        }
+      }
     },
     onclosetag: function (tagname) {
       if (tagname === 'p') {
@@ -53,6 +65,9 @@ module.exports = function (markup) {
       }
       if (tagname === 'h1') {
         inH1 = false;
+      }
+      if (tagname === 'title') {
+        inTitle = false;
       }
     }
   });

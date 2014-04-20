@@ -24,11 +24,10 @@ describe('Scraper', function () {
         expect(parser(html).nextLink).to.equal('ch2.html');
       });
 
-      if (scenario === 'first-in-a-book') {
-        it('should remember the chapter number', function () {
-          expect(parser(html).chapter).to.equal('1');
-        });
-      }
+      it('should remember the chapter number', function () {
+        var expectedChapter = scenario === 'first-in-a-book' ? '1' : '3';
+        expect(parser(html).chapter).to.equal(expectedChapter);
+      });
 
       it.skip('should remember the book', function () {
         expect(parser(html).book).to.equal('The Book of Jacob');
