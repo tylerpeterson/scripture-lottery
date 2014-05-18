@@ -1,11 +1,11 @@
-var request = require('superagent'),
-    url = require('url'),
-    parser = require('./nephi-parser'),
-    docUrl = 'http://scriptures.nephi.org/docbook/bom/c6.html',
-    Q = require('q'),
-    debug = require('debug')('nephi-scraper'),
-    fs = require('fs'),
-    path = require('path');
+var request = require('superagent');
+var url = require('url');
+var parser = require('./nephi-parser');
+var docUrl = 'http://scriptures.nephi.org/docbook/bom/c6.html';
+var Q = require('q');
+var debug = require('debug')('nephi-scraper');
+var fs = require('fs');
+var path = require('path');
 
 
   // TODO compute the next url based on the parsed nextlink and the base url
