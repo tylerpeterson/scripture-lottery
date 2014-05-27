@@ -5,6 +5,18 @@ var htmlparser = require('htmlparser2');
 var debug = require('debug')('scripture-lottery');
 var parser;
 
+parser = new htmlparser.Parser({
+  onopentag: function (tagname, attrs) {
+    if (tagname === 'p' && attrs.class === 'verse' && attrs.id) {
+      var parts = attrs.id.split('_');
+      if (parts) {
+        parser.lastSeen = parseInt(parts.pop());
+      }
+    }
+  },
+});
+
+
 epub.on("end", function(){
   // epub is now usable
   console.log(epub.metadata.title);
@@ -16,7 +28,15 @@ epub.on("end", function(){
     var chapterNum = parseInt(parts[2]);
 
     if (chapterNum > 0) {
-      debug("Found booK '%s' chapter %d", book, chapterNum);
+      epub.getChapter(chapter.id, function (err, text) {
+        if (err) {
+          debug('got err fetching chapter', err);
+          return;
+        }
+
+        parser.write(text);
+        debug('Found book %s has chapter %d with last verse %d', book, chapterNum, parser.lastSeen);
+      });
     } else {
       debug('Chapter id "%s" isn\'t a normal chapter.', id);
     }
