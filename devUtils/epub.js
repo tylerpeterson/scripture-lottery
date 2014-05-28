@@ -4,6 +4,9 @@ var htmlparser = require('htmlparser2');
 var debug = require('debug')('scripture-lottery');
 var parser;
 var program = require('commander');
+var fs = require('fs');
+
+var works = ['ot', 'nt', 'jst', 'bofm', 'bd', 'tg'];
 
 program
   .version('0.0.1')
@@ -23,10 +26,15 @@ parser = new htmlparser.Parser({
   },
 });
 
+var accumulator = {};
 
 epub.on("end", function(){
   // epub is now usable
+  var work = null;
+
   console.log(epub.metadata.title);
+  console.log(epub.metadata);
+  var chapters = [];
 
   epub.flow.forEach(function(chapter){
     var id = chapter.id;
@@ -34,20 +42,51 @@ epub.on("end", function(){
     var book = parts[1];
     var chapterNum = parseInt(parts[2]);
 
-    if (chapterNum > 0) {
-      epub.getChapter(chapter.id, function (err, text) {
-        if (err) {
-          debug('got err fetching chapter', err);
-          return;
-        }
+    if (parts.length === 3 && chapterNum === 0 && works.indexOf(parts[1]) !== -1) {
+      work = parts[1];
+    }
 
-        parser.write(text);
-        debug('Found book %s has chapter %d with last verse %d', book, chapterNum, parser.lastSeen);
-      });
+    if (chapterNum > 0) {
+      chapters.push({id: id, book: book, num: chapterNum, work: work});
+    } else  if (work === 'tg' || work === 'bd' || work === 'jst') {
+      // silently ignore
+    } else if (chapterNum === 0) {
+      chapters.push({id: id, book: book, num: 1, work: work});
     } else {
       debug('Chapter id "%s" isn\'t a normal chapter.', id);
     }
   });
+
+  function processChapter() {
+    if (chapters.length === 0) {
+      debug('Done processing chapters');
+      return;
+    }
+
+    var meta = chapters.shift();
+    epub.getChapter(meta.id, function (err, text) {
+      if (err) {
+        debug('got err fetching chapter', err);
+        return;
+      }
+
+      parser.write(text);
+      if (parser.lastSeen > 0) {
+        debug('Found work %s book %s has chapter %d with last verse %d', meta.work, meta.book, meta.num, parser.lastSeen);
+
+        accumulator[meta.work] = accumulator[meta.work] || {};
+        accumulator[meta.work][meta.book] = accumulator[meta.work][meta.book] || [];
+        accumulator[meta.work][meta.book][meta.num - 1] = parseInt(parser.lastSeen);
+
+        fs.writeFileSync(path.join(__dirname, 'output/verses.json'), JSON.stringify(accumulator, null, 2));
+      }
+      parser.lastSeen = -1;
+
+      processChapter();
+    });
+  }
+
+  processChapter();
 });
 
 epub.parse();
