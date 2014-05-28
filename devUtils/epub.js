@@ -1,9 +1,16 @@
 var EPub = require('epub');
 var path = require('path');
-var epub = new EPub(path.join(__dirname, '../epubs/book-of-mormon-eng.epub'));
 var htmlparser = require('htmlparser2');
 var debug = require('debug')('scripture-lottery');
 var parser;
+var program = require('commander');
+
+program
+  .version('0.0.1')
+  .option('-f, --file [path]', 'specify which epub to read. default 1', '1')
+  .parse(process.argv);
+
+var epub = new EPub(path.join(process.cwd(), program.file));
 
 parser = new htmlparser.Parser({
   onopentag: function (tagname, attrs) {
@@ -40,11 +47,6 @@ epub.on("end", function(){
     } else {
       debug('Chapter id "%s" isn\'t a normal chapter.', id);
     }
-  });
-
-  epub.getChapter('lds_moro_010', function (err, text) {
-    if (err) return console.log(err);
-    console.log(text);
   });
 });
 
