@@ -30,3 +30,8 @@ exports.index = function(req, res){
   viewParams.title = 'Scripture Lottery';
   res.render('index', viewParams);
 };
+
+exports.e404 = function (req, res) {
+  // TODO try serving as static asset instead of rendered view
+  res.render('404');
+};
