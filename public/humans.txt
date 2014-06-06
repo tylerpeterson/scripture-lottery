@@ -3,7 +3,6 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
     Creator: Tyler Peterson
     Contact: stronglytyped [at} gmail d0t com
     Twitter: @stonetooth
