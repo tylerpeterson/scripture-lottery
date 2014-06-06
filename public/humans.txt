@@ -4,12 +4,17 @@
 # TEAM
 
     <name> -- <role> -- <twitter>
+    Creator: Tyler Peterson
+    Contact: stronglytyped [at} gmail d0t com
+    Twitter: @stonetooth
+    From: West Valley City, Utah, USA
+
 
 # THANKS
 
-    <name>
+    Jerry Seinfeld for suggesting that if you want to be great at something you have to do it every day.
 
 # TECHNOLOGY COLOPHON
 
     HTML5, CSS3
-    jQuery, Modernizr
+    Initializr
