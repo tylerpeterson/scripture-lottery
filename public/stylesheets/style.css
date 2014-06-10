@@ -5,3 +5,8 @@ body {
 a {
   color: #00b7ff;
 }
+@media (max-width: 500px) {
+  body {
+    padding: 15px;
+  }
+}
