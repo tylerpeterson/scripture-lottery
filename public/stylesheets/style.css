@@ -5,6 +5,10 @@ body {
 a {
   color: #00b7ff;
 }
+h1 {
+  background-color: #0000e6;
+  color: #dadb0c;
+}
 @media (max-width: 500px) {
   body {
     padding: 15px;

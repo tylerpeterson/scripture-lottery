@@ -1,8 +1,15 @@
+accent-fill = darken(blue, 10%);
+accent-text-color = desaturate(complement(accent-fill), 10%)
+
+
 body
   padding: 50px
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif
 a
   color: #00B7FF
+h1
+  background-color: accent-fill
+  color: accent-text-color
 @media (max-width: 500px)
   body
     padding: 15px
