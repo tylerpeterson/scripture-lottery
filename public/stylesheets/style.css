@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  padding: 15px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 a {
@@ -9,8 +9,8 @@ h1 {
   background-color: #0000e6;
   color: #dadb0c;
 }
-@media (max-width: 500px) {
+@media (min-width: 500px) {
   body {
-    padding: 15px;
+    padding: 50px;
   }
 }
