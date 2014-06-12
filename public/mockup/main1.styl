@@ -1,0 +1,54 @@
+accent-fill = darken(cadetblue, 10%)
+accent-text-color = lighten(desaturate(complement(accent-fill), 10%), 75%)
+text-color = invert(accent-text-color)
+normal-fill = lighten(invert(accent-fill), 70%)
+link-color = darken(deepskyblue, 25%)
+quote-fill = lightgoldenrodyellow
+quote-footer-fill = desaturate(darken(quote-fill, 10%), 10%)
+
+// Try basing the site colors on the quote fill color
+
+accent-fill = invert(complement(quote-fill))
+normal-fill = lighten(complement(quote-fill), 75%)
+accent-text-color = normal-fill
+// text-color = darkslategray
+text-color = accent-fill
+
+// padding
+
+med-padding = 15px
+small-padding = med-padding / 2
+
+body
+  padding 0px
+  margin 0px
+  font 14px "Lucida Grande", Helvetica, Arial, sans-serif
+a
+  color link-color
+h1
+  padding med-padding
+  margin 0px
+header
+  background-color accent-fill
+  color accent-text-color
+  margin-top 0px
+article
+  color text-color
+  background-color normal-fill
+  margin 0
+p
+  margin 0
+  padding 14px
+blockquote
+  background-color quote-fill
+  footer
+    background-color quote-footer-fill
+    text-align right
+    p
+      padding-right med-padding
+      padding-left med-padding
+      padding-top small-padding
+      padding-bottom small-padding
+@media (min-width 500px)
+  body
+    padding 50px

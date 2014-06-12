@@ -1,0 +1,44 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+a {
+  color: #008fbf;
+}
+h1 {
+  padding: 15px;
+  margin: 0px;
+}
+header {
+  background-color: #2d2d05;
+  color: #f4f4fe;
+  margin-top: 0px;
+}
+article {
+  color: #2d2d05;
+  background-color: #f4f4fe;
+  margin: 0;
+}
+p {
+  margin: 0;
+  padding: 14px;
+}
+blockquote {
+  background-color: #fafad2;
+}
+blockquote footer {
+  background-color: #f1f1ad;
+  text-align: right;
+}
+blockquote footer p {
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 7.5px;
+  padding-bottom: 7.5px;
+}
+@media (min-width 500px) {
+  body {
+    padding: 50px;
+  }
+}
