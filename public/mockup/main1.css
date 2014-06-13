@@ -14,6 +14,8 @@ header {
   background-color: #2d2d05;
   color: #f4f4fe;
   margin-top: 0px;
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
 }
 article {
   color: #2d2d05;
