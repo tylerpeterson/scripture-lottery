@@ -7,6 +7,7 @@ normal-fill = lighten(invert(accent-fill), 70%)
 link-color = darken(deepskyblue, 25%)
 quote-fill = lightgoldenrodyellow
 quote-footer-fill = desaturate(darken(quote-fill, 10%), 10%)
+quote-shadow = desaturate(darken(quote-footer-fill, 10%), 80%)
 
 // Try basing the site colors on the quote fill color
 
@@ -47,6 +48,7 @@ p
   padding 14px
 blockquote
   background-color quote-fill
+  box-shadow 0 0 small-padding (small-padding / 2) quote-shadow
   footer
     background-color quote-footer-fill
     text-align right

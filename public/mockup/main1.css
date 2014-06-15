@@ -30,6 +30,8 @@ p {
 }
 blockquote {
   background-color: #fafad2;
+  -webkit-box-shadow: 0 0 7.5px 3.75px #c4c4b1;
+  box-shadow: 0 0 7.5px 3.75px #c4c4b1;
 }
 blockquote footer {
   background-color: #f1f1ad;
