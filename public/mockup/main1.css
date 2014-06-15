@@ -21,6 +21,8 @@ article {
   color: #2d2d05;
   background-color: #f4f4fe;
   margin: 0;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
 }
 p {
   margin: 0;
