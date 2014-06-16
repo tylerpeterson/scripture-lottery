@@ -22,10 +22,18 @@ text-color = accent-fill
 med-padding = 15px
 small-padding = med-padding / 2
 
+// proportions
+
+phi = 1.618
+totalWidth = 1 + phi
+firstStop = 1 / totalWidth / 2
+secondStop = firstStop + (phi / totalWidth)
+
 body
   padding 0px
   margin 0px
   font 14px "Lucida Grande", Helvetica, Arial, sans-serif
+  background linear-gradient(left, normal-fill, (firstStop * 100)% accent-fill, (secondStop * 100)% accent-fill, 100% normal-fill)
 a
   color link-color
 h1

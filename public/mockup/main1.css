@@ -2,6 +2,11 @@ body {
   padding: 0px;
   margin: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: -webkit-linear-gradient(left, #f4f4fe, #2d2d05 19.09854851031321%, #2d2d05 80.90145148968676%, #f4f4fe 100%);
+  background: -moz-linear-gradient(left, #f4f4fe, #2d2d05 19.09854851031321%, #2d2d05 80.90145148968676%, #f4f4fe 100%);
+  background: -o-linear-gradient(left, #f4f4fe, #2d2d05 19.09854851031321%, #2d2d05 80.90145148968676%, #f4f4fe 100%);
+  background: -ms-linear-gradient(left, #f4f4fe, #2d2d05 19.09854851031321%, #2d2d05 80.90145148968676%, #f4f4fe 100%);
+  background: linear-gradient(to right, #f4f4fe, #2d2d05 19.09854851031321%, #2d2d05 80.90145148968676%, #f4f4fe 100%);
 }
 a {
   color: #008fbf;
