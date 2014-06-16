@@ -29,6 +29,8 @@ totalWidth = 1 + phi
 firstStop = 1 / totalWidth / 2
 secondStop = firstStop + (phi / totalWidth)
 
+global-reset()
+
 body
   padding 0px
   margin 0px
@@ -39,6 +41,8 @@ a
 h1
   padding med-padding
   margin 0px
+  font-size 2em
+  font-weight bold
 header
   background-color accent-fill
   color accent-text-color
@@ -60,6 +64,7 @@ p
   margin 0
   padding 14px
 blockquote
+  margin 14px 40px
   background-color quote-fill
   box-shadow 0 0 small-padding (small-padding / 2) quote-shadow
   footer
