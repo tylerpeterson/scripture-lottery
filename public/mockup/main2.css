@@ -1,0 +1,158 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+body {
+  line-height: 1;
+  color: #000;
+  background: #fff;
+}
+ol,
+ul {
+  list-style: none;
+}
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  vertical-align: middle;
+}
+caption,
+th,
+td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+a img {
+  border: none;
+}
+body {
+  padding: 0px;
+  margin: 0px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: -webkit-linear-gradient(left, #d3d3d3, #000 19.09854851031321%, #000 80.90145148968676%, #d3d3d3 100%);
+  background: -moz-linear-gradient(left, #d3d3d3, #000 19.09854851031321%, #000 80.90145148968676%, #d3d3d3 100%);
+  background: -o-linear-gradient(left, #d3d3d3, #000 19.09854851031321%, #000 80.90145148968676%, #d3d3d3 100%);
+  background: -ms-linear-gradient(left, #d3d3d3, #000 19.09854851031321%, #000 80.90145148968676%, #d3d3d3 100%);
+  background: linear-gradient(to right, #d3d3d3, #000 19.09854851031321%, #000 80.90145148968676%, #d3d3d3 100%);
+}
+a {
+  color: #566469;
+}
+h1 {
+  padding: 15px;
+  margin: 0px;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+}
+header {
+  background-color: #000;
+  color: #d3d3d3;
+  margin-top: 0px;
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
+}
+article {
+  color: #2c2c2c;
+  background-color: #d3d3d3;
+  margin: 0;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+  -webkit-box-shadow: inset 0 0 7.5px #000;
+  box-shadow: inset 0 0 7.5px #000;
+}
+article footer {
+  text-align: center;
+}
+article form {
+  text-align: center;
+}
+p {
+  margin: 0;
+  padding: 14px;
+}
+blockquote {
+  margin: 14px 40px;
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 7.5px 3.75px #cfcfcf;
+  box-shadow: 0 0 7.5px 3.75px #cfcfcf;
+}
+blockquote footer {
+  background-color: #e6e6e6;
+  text-align: right;
+}
+blockquote footer p {
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 7.5px;
+  padding-bottom: 7.5px;
+}
+@media (min-width 500px) {
+  body {
+    padding: 50px;
+  }
+}

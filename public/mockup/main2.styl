@@ -1,0 +1,78 @@
+@import 'nib'
+
+link-color = desaturate(darken(deepskyblue, 25%), 90%)
+
+// Try basing the site colors on the quote fill color
+
+accent-fill = black
+quote-fill = white
+quote-footer-fill = desaturate(darken(quote-fill, 10%), 10%)
+quote-shadow = desaturate(darken(quote-footer-fill, 10%), 80%)
+normal-fill = lightgray
+accent-text-color = normal-fill
+// text-color = darkslategray
+text-color = accent-fill
+text-color = invert(accent-text-color)
+
+// padding
+
+med-padding = 15px
+small-padding = med-padding / 2
+
+// proportions
+
+phi = 1.618
+totalWidth = 1 + phi
+firstStop = 1 / totalWidth / 2
+secondStop = firstStop + (phi / totalWidth)
+
+global-reset()
+
+body
+  padding 0px
+  margin 0px
+  font 14px "Lucida Grande", Helvetica, Arial, sans-serif
+  background linear-gradient(left, normal-fill, (firstStop * 100)% accent-fill, (secondStop * 100)% accent-fill, 100% normal-fill)
+a
+  color link-color
+h1
+  padding med-padding
+  margin 0px
+  font-size 2em
+  font-weight bold
+  text-align center
+header
+  background-color accent-fill
+  color accent-text-color
+  margin-top 0px
+  border-top-left-radius 1em
+  border-top-right-radius 1em
+article
+  color text-color
+  background-color normal-fill
+  margin 0
+  border-bottom-left-radius 1em
+  border-bottom-right-radius 1em
+  box-shadow inset 0 0 small-padding accent-fill
+  footer
+    text-align center
+  form
+    text-align center
+p
+  margin 0
+  padding 14px
+blockquote
+  margin 14px 40px
+  background-color quote-fill
+  box-shadow 0 0 small-padding (small-padding / 2) quote-shadow
+  footer
+    background-color quote-footer-fill
+    text-align right
+    p
+      padding-right med-padding
+      padding-left med-padding
+      padding-top small-padding
+      padding-bottom small-padding
+@media (min-width 500px)
+  body
+    padding 50px
