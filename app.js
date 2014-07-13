@@ -41,6 +41,7 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
+app.get('/bofm', routes.bofm);
 app.get('/users', user.list);
 app.get('*', routes.e404);
 
