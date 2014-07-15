@@ -41,7 +41,7 @@ exports.bofm = function (req, res) {
   var viewParams = generateViewParams('bofm');
 
   viewParams.title = 'Book of Mormon Scripture Lottery';
-  res.render('index', viewParams);  
+  res.render('bofm', viewParams);  
 }
 
 exports.e404 = function (req, res) {
