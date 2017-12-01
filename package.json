@@ -23,7 +23,7 @@
   "homepage": "https://github.com/tylerpeterson/scripture-lottery",
   "dependencies": {
     "express": "3.5.0",
-    "ejs": "*",
+    "ejs": "^2.5.5",
     "stylus": "*",
     "q": "~1.0.1",
     "debug": "~0.7.4",
