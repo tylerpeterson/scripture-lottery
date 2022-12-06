@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/tylerpeterson/scripture-lottery",
   "dependencies": {
-    "express": "^3.5.0",
+    "express": "^4.18.2",
     "ejs": "^2.5.5",
     "stylus": "*",
     "q": "^1.0.1",
@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "htmlparser2": "^3.7.1",
-    "superagent": "^0.17.0",
+    "superagent": "^8.0.5",
     "chai": "^1.9.1"
   },
   "engines": {
